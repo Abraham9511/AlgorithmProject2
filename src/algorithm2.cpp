@@ -37,7 +37,7 @@ std::pair<int,double>** Random_Projection(const int& n, Image* image, const int&
     }
 
     for (int i = 0; i < m; ++i) {
-        boxmuller<double>(a[i], d);
+        boxmuller<double>(a[i], m);
     }
 
     for (int i = 0; i < n; ++i) {
@@ -46,5 +46,11 @@ std::pair<int,double>** Random_Projection(const int& n, Image* image, const int&
             S[j][i].second = image[i].Multiply(a[j]);
         }
     }
+
+    for (int i = 0; i < m; ++i) {
+      delete[] a[i];
+    }
+    delete[]a;
+    
     return S;
 }

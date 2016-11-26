@@ -1,6 +1,7 @@
 #ifndef _IMAGE_H
 #define _IMAGE_H
 
+#include<string>
 class Image {
   public:
     Image();
