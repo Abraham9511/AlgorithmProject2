@@ -26,3 +26,13 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 ![](./pic/Algorithm2.png)
 ![](./pic/Algorithm3.png)
 ![](./pic/Algorithm4.png)
+
+### 贡献者
+欧光文，庄嘉鑫，徐嘉辰，夏中舟
+
+### 参考资料：
+1. [LCG](http://blog.csdn.net/jackytintin/article/details/7798157)
+2. [box-Muller](https://www.zhihu.com/question/29971598)
+3. [h文件和cpp文件](http://www.cnblogs.com/ider/archive/2011/06/30/what_is_in_cpp_header_and_implementation_file.html)
+4. [makefile](http://wiki.ubuntu.org.cn/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:MakeFile%E4%BB%8B%E7%BB%8D)
+5. [ubuntu简单写makefile](http://wiki.ubuntu.org.cn/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:MakeFile%E4%BB%8B%E7%BB%8D)
