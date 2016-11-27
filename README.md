@@ -31,7 +31,7 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 #### 11.27
 * A1, A2, A4可以跑
 * 效果比较差
-* makefile不能启动，只能 g++ -std=c11++ cp.main algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp -o cp
+* makefile不能启动，只能 g++ -std=c11++ cp.main algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp Enumeration.cpp -o cp
 
 ### 参考资料：
 1. [LCG](http://blog.csdn.net/jackytintin/article/details/7798157)

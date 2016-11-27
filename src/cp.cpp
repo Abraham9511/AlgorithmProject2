@@ -5,6 +5,7 @@
 #include<cmath>
 #include"Image.h"
 #include"algorithm1.h"
+#include"Enumeration.h"
 
 using std::fstream;
 using std::cin;
@@ -49,9 +50,16 @@ int main(int argc, char* args[]) {
         ++index;
     }
 
-    std::pair<int, int> cp = Closet_Pair(total_image, image_arr, each_image_size);
-    cout << "Closet set is " << cp.first << " " << cp.second << endl;
-    image_arr[cp.first].Print_Image();
-    image_arr[cp.second].Print_Image();
+    std::pair<int, int> cp1 = Closet_Pair(total_image, image_arr, each_image_size);
+    cout << "Closet set is " << cp1.first << " " << cp1.second << endl;
+    image_arr[cp1.first].Print_Image();
+    image_arr[cp1.second].Print_Image();
+
+    cout << "Enumeration" << endl;
+    std::pair<int>cp2 = Enumeration(image, total_image);
+    cout << "Closet set is " << cp2.first << " " << cp2.second << endl;
+    image_arr[cp2.first].Print_Image();
+    image_arr[cp2.second].Print_Image();
+    
     file.close();
 }
