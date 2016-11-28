@@ -19,7 +19,8 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 ![](./pic/submission.png)
 
 ### 难点
-这个算法要实现最优化的参数设置，找多几组数据测试，然后暴力找到最优化解以及次优，第三优，等等，看看算法实现出来的结果怎么样。m该怎么取
+~~  这个算法要实现最优化的参数设置，找多几组数据测试，然后暴力找到最优化解以及次优，第三优，等等，看看算法实现出来的结果怎么样。m该怎么取 ~~
+实际上维度是确定的
 
 ### 算法截图
 ![](./pic/Algorithm1.png)
@@ -29,9 +30,11 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 
 ### 进程
 #### 11.27
-* A1, A2, A4可以跑
+* A1, A2, A3, A4 Enumeration可以跑
 * 效果比较差
-* makefile不能启动，只能 g++ -std=c11++ cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp Enumeration.cpp -o cp
+* makefile不能启动，只能 
+g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp Enumeration.cpp Image.cpp -o cp
+* 第一次输出结果查看first_test.log
 
 ### 贡献者
 欧光文，庄嘉鑫，徐嘉辰，夏中舟

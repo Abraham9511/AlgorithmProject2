@@ -51,6 +51,6 @@ std::pair<int,double>** Random_Projection(const int& n, Image* image, const int&
       delete[] a[i];
     }
     delete[]a;
-    
+
     return S;
 }

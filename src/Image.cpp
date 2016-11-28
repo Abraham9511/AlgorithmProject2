@@ -63,21 +63,22 @@ double Image::Multiply(double* a) {
 }
 
 void Image::Print_Image() {
-    cout << "-------------------------------" << endl;
-    for (int i = 0; i < Row; ++i) {
-        string ltemp((Get_Image()).substr(i*Col, Col));
-        string temp = "";
-        for (int j = 0; j < Col; ++j) {
-            if (ltemp[j] == 0) {
-                temp +=" ";
-            } else {
-                temp += "*";
-            }
-        }
-        if (i < 10) {
-            cout << " " << i+1 << " " << temp << endl;
-        } else {
-            cout << i+1 << " " << temp << endl;
-        }
-    }
+  cout << "-------------------------------" << endl;
+  //cout << image << endl;
+  for (int i = 0; i < Row; ++i) {
+      string ltemp(image.substr(i*Col, (i+1)*Col));
+      string temp = "";
+      for (int j = 0; j < Col; ++j) {
+          if (ltemp[j] == 0b00000000) {
+              temp +=" ";
+          } else {
+              temp += "*";
+          }
+      }
+      if (i < 9) {
+          cout << " " << i+1 << " " << temp << endl;
+      } else {
+          cout << i+1 << " " << temp << endl;
+      }
+  }
 }

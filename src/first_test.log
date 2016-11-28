@@ -196,3 +196,10 @@ Closet set is 3 6
 26                             
 27                             
 28                             
+total_image: 60000
+each_image_size: 784 bytes
+file_path: train-images.idx3-ubyte
+Magic number= 2051
+Number of images= 60000
+rows= 28
+cols= 28
