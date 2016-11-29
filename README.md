@@ -28,6 +28,14 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 ![](./pic/Algorithm3.png)
 ![](./pic/Algorithm4.png)
 
+
+### 编译
+> g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp Enumeration.cpp Image.cpp -o cp
+
+### 运行
+在src下
+> ./cp -n 60000 -d 784 -f train-images.idx3-ubyte
+
 ### 进程
 #### 11.27
 * A1, A2, A3, A4 Enumeration可以跑
@@ -35,6 +43,11 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 * makefile不能启动，只能 
 g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp Enumeration.cpp Image.cpp -o cp
 * 第一次输出结果查看first_test.log
+
+#### 11.28 
+* 第二次输出结果查看second_test.log
+枚举出来的效果表明，我们的算法的效果很不行
+
 
 ### 贡献者
 欧光文，庄嘉鑫，徐嘉辰，夏中舟

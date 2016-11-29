@@ -90,36 +90,36 @@ int main(int argc, char* args[]) {
     clock_t start, finish;
     double duration;
 
-    cout << "Random Projection Using Median" << endl;
-    start = clock();
-    std::pair<int, int> cp1 = Closet_Pair1(total_image, image_arr, each_image_size);
-    finish = clock();
-    duration = (finish-start)/CLOCKS_PER_SEC;
-    cout << "Closet set is " << cp1.first << " " << cp1.second << endl;
-    cout << "When Random Projection, time costs is " << duration << "s" << endl;
-    image_arr[cp1.first].Print_Image();
-    image_arr[cp1.second].Print_Image();
-    
-
-    cout << "Random Projection Using Pivot" << endl;
-    start = clock();
-    std::pair<int, int> cp2 = Closet_Pair2(total_image, image_arr, each_image_size);
-    finish = clock();
-    duration = (finish-start)/CLOCKS_PER_SEC;
-    cout << "Closet set is " << cp2.first << " " << cp2.second << endl;
-    cout << "When Random Projection, time costs is " << duration << "s" << endl;
-    image_arr[cp2.first].Print_Image();
-    image_arr[cp2.second].Print_Image();
-    //
-    // cout << "Enumeration" << endl;
+    // cout << "Random Projection Using Median" << endl;
     // start = clock();
-    // std::pair<int,int>cp3 = Enumeration(image_arr, total_image);
+    // std::pair<int, int> cp1 = Closet_Pair1(total_image, image_arr, each_image_size);
     // finish = clock();
     // duration = (finish-start)/CLOCKS_PER_SEC;
-    // cout << "When Enumeration, time costs is " << duration << "s" << endl;
-    // cout << "Closet set is " << cp3.first << " " << cp3.second << endl;
-    // image_arr[cp3.first].Print_Image();
-    // image_arr[cp3.second].Print_Image();
+    // cout << "Closet set is " << cp1.first << " " << cp1.second << endl;
+    // cout << "When Random Projection, time costs is " << duration << "s" << endl;
+    // image_arr[cp1.first].Print_Image();
+    // image_arr[cp1.second].Print_Image();
+    //
+    //
+    // cout << "Random Projection Using Pivot" << endl;
+    // start = clock();
+    // std::pair<int, int> cp2 = Closet_Pair2(total_image, image_arr, each_image_size);
+    // finish = clock();
+    // duration = (finish-start)/CLOCKS_PER_SEC;
+    // cout << "Closet set is " << cp2.first << " " << cp2.second << endl;
+    // cout << "When Random Projection, time costs is " << duration << "s" << endl;
+    // image_arr[cp2.first].Print_Image();
+    // image_arr[cp2.second].Print_Image();
+    //
+    cout << "Enumeration" << endl;
+    start = clock();
+    std::pair<int,int>cp3 = Enumeration(image_arr, total_image);
+    finish = clock();
+    duration = (finish-start)/CLOCKS_PER_SEC;
+    cout << "When Enumeration, time costs is " << duration << "s" << endl;
+    cout << "Closet set is " << cp3.first << " " << cp3.second << endl;
+    image_arr[cp3.first].Print_Image();
+    image_arr[cp3.second].Print_Image();
 
     file.close();
 }
