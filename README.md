@@ -47,7 +47,7 @@ g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cp
 #### 11.28 
 * 第二次输出结果查看second_test.log
 枚举出来的效果表明，我们的算法的效果很不行
-
+* Enumeration函数为了返回多个pair，因而修改了返回的形式参数的模样为vector< pair<int,int> >
 
 ### 贡献者
 欧光文，庄嘉鑫，徐嘉辰，夏中舟

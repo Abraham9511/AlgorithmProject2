@@ -3,9 +3,10 @@
 
 #include "Image.h"
 #include <utility>
+#include <vector>
 
 
-std::pair<int, int> Enumeration(Image* image, const int& image_size);
+std::vector<std::pair<int, int> >Enumeration(Image* image, const int& image_size);
 
 
 #endif

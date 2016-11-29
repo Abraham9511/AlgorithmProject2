@@ -113,13 +113,17 @@ int main(int argc, char* args[]) {
     //
     cout << "Enumeration" << endl;
     start = clock();
-    std::pair<int,int>cp3 = Enumeration(image_arr, total_image);
+    std::vector<std::pair<int,int> >cp3 = Enumeration(image_arr, total_image);
     finish = clock();
     duration = (finish-start)/CLOCKS_PER_SEC;
     cout << "When Enumeration, time costs is " << duration << "s" << endl;
-    cout << "Closet set is " << cp3.first << " " << cp3.second << endl;
-    image_arr[cp3.first].Print_Image();
-    image_arr[cp3.second].Print_Image();
+    int i = 0;
+    for (auto it = cp3.cbegin(); it != cp3.cend(); ++it) {
+        cout << "No." << i << " Closet set is " << it->first << " " << it->second << endl;
+        image_arr[it->first].Print_Image();
+        image_arr[it->second].Print_Image();
+        ++i;
+    }
 
     file.close();
 }
