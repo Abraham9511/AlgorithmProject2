@@ -5,6 +5,8 @@
 #include <utility>
 #include <vector>
 
+const int BACK = 10;
+
 
 std::vector<std::pair<int, int> >Enumeration(Image* image, const int& image_size);
 
