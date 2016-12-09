@@ -8,35 +8,40 @@ using std::cout;
 using std::endl;
 using std::string;
 
-Image::Image() {}
-
-void Image::Set_Index(const int& index) {
-    this->Index = index;
+Image::Image() {
+  this->Arr = NULL;
 }
 
-void Image::Add_Image(const string& ltemp, const int& m, const int& row, const int& col) {
-    this->image = ltemp;
-    this->Size = m;
-    this->Row = row;
-    this->Col = col;
-    this->Arr = new int[m];
-    Trans_Int();
-}
-
-void Image::Trans_Int() {
-    int m = Get_Size();
-    const string& temp = Get_Image();
-    for (int i = 0; i < m; ++i) {
-        this->Arr[i] = atoi(&temp.c_str()[i]);
+Image::~Image() {
+    if(this->Arr != NULL) {
+        delete[] this->Arr;
     }
 }
 
-int* Image::Get_Arr() {
+// 初始化图像并且生成图像的double数组方便后面计算
+void Image::Add_Image(const string& temp, const int& rows, const int& cols) {
+    this->image = temp;
+    this->Size = rows*cols;
+    this->Row = rows;
+    this->Col = cols;
+    this->Arr = new double[this->Get_Size()];
+    this->Trans_Int();
+}
+
+void Image::Trans_Int() {
+    int size = Get_Size();
+    const string& temp = Get_Image();
+    for (int i = 0; i < size; ++i) {
+        this->Arr[i] = (unsigned char)(temp.c_str()[i]);
+    }
+}
+
+double* Image::Get_Arr() {
     return this->Arr;
 }
 
 int Image::Get_Size() {
-    return this->Size;
+    return (this->Get_Row())*(this->Get_Col());
 }
 
 int Image::Get_Row() {
@@ -55,21 +60,22 @@ double Image::Multiply(double* a) {
     double ans;
     int size = Get_Size();
     const string& temp = Get_Image();
-    const int* p = Get_Arr();
+    const double* p = Get_Arr();
     for (int i = 0; i < size; ++i) {
         ans += a[i]* p[i];
     }
     return ans;
 }
 
+// 格式化打印图像
+// 一个unsigned char的取值是0-255，我们认为所有只要不是0，就输出“ ”，否则输出”*“
 void Image::Print_Image() {
   cout << "-------------------------------" << endl;
-  //cout << image << endl;
   for (int i = 0; i < Row; ++i) {
       string ltemp(image.substr(i*Col, (i+1)*Col));
       string temp = "";
       for (int j = 0; j < Col; ++j) {
-          if (ltemp[j] == 0b00000000) {
+          if (ltemp[j] != 0b00000000) {
               temp +=" ";
           } else {
               temp += "*";
