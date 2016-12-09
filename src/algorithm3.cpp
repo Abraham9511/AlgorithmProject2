@@ -25,19 +25,20 @@ pair<double, pair<int, int> > findMinBetweenThree(pair<double, pair<int, int> >&
 */
 pair<double, pair<int, int> > Closet_Pair_M(pair<int, double>* list, int number);
 
-// int main() {
-// 	pair<int, double> pairs[6];
-// 	pairs[0] = make_pair(0, 300);
-// 	pairs[1] = make_pair(1, 0);
-// 	pairs[2] = make_pair(2, 30);
-// 	pairs[3] = make_pair(3, 100);
-// 	pairs[4] = make_pair(4, 10);
-// 	// pairs[5] = make_pair(5, 1);
-// 	pair<double, pair<int, int> > answer = Closet_Pair_M(pairs, 5);
-// 	cout << "dist is " << answer.first << endl;
-// 	cout << "one is " << answer.second.first << ", two is " << answer.second.second << endl;
-// 	return 0;
-// }
+int main() {
+	pair<int, double> pairs[7];
+	pairs[0] = make_pair(0, 300);
+	pairs[1] = make_pair(1, 0);
+	pairs[2] = make_pair(2, 30);
+	pairs[3] = make_pair(3, 100);
+	pairs[4] = make_pair(4, 10);
+	pairs[5] = make_pair(5, 1);
+	pairs[6] = make_pair(6, 50);
+	pair<double, pair<int, int> > answer = Closet_Pair_M(pairs, 7);
+	cout << "dist is " << answer.first << endl;
+	cout << "one is " << answer.second.first << ", two is " << answer.second.second << endl;
+	return 0;
+}
 
 int partition(pair<int, double>* list, int start, int end) {
 	int rd = start + rand() % (end - start + 1);
@@ -72,6 +73,10 @@ int getMid(pair<int, double>* list, int number) {
 }
 
 pair<double, pair<int, int> > findMinBetweenThree(pair<double, pair<int, int> >& pair1, pair<double, pair<int, int> >& pair2, pair<double, pair<int, int> >& pair3) {
+	cout << "pair1: " << pair1.first << ", " << pair1.second.first << ", " << pair1.second.second << endl;
+	cout << "pair2: " << pair2.first << ", " << pair2.second.first << ", " << pair2.second.second << endl;
+	cout << "pair3: " << pair3.first << ", " << pair3.second.first << ", " << pair3.second.second << endl;
+	cout << endl;
 	if (pair1.first < pair2.first) {
 		if (pair1.first < pair3.first) {
 			return pair1;
@@ -107,9 +112,16 @@ pair<double, pair<int, int> > Closet_Pair_M(pair<int, double>* list, int number)
 		pair<double, pair<int, int> > Closet_Pair_3;
 		// 因为这里是以0开始
 		Closet_Pair_3.first = list[mid].second - list[mid - 1].second;
-		Closet_Pair_3.second.first = mid;
-		Closet_Pair_3.second.second = mid + 1;
+		cout << "mid is " << mid << endl;
+		Closet_Pair_3.second.first = list[mid - 1].first;
+		Closet_Pair_3.second.second = list[mid].first;
 		answer = findMinBetweenThree(Closet_Pair_1, Closet_Pair_2, Closet_Pair_3);
 	}
+
+	for (int i = 0; i < number; i++) {
+		cout << list[i].first << " " << list[i].second << endl;
+	}
+	cout << "answer is : ";
+	cout << "dist is " << answer.first << " " << answer.second.first << ", " << answer.second.second << endl << endl;
 	return answer;
 }
