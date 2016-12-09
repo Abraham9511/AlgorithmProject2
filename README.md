@@ -74,10 +74,13 @@ make run
 * Algorithm3和Algorithm4的接口改变
 * Image的打印的图像的样式反转了
 
-### 代码组成
-#### 文件目录
-#### 具体文件的接口以及相应解释
-##### Image 
+等algorithm3和4修改完，合并再进行最后测试，**ddl：12.10晚上12点**
+
+##### 后期文档分工
+注释都由完成cpp文件的人自己负责
+* 党员，algorithm3文档
+* 中舟，algorithm4文档
+* 班长，cp, image, algorithm1, algorithm2文档
 
 ### 贡献者
 欧光文，庄嘉鑫，徐嘉辰，夏中舟
