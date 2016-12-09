@@ -59,7 +59,7 @@ std::pair<int, int> Closet_Pair(const int& total_image, const int& each_image_si
 
     s = clock();
     for (int i = 0; i < m; ++i) {
-        temp = Closet_Pair_Median(S[i]);
+        temp = Closet_Pair_Median(S[i],total_image);
         double dist = Euclidean_Distance(temp.second.first, temp.second.second, image_arr);
         if (min > dist) {
             min = dist;
@@ -88,7 +88,7 @@ std::pair<int, int> Closet_Pair(const int& total_image, const int& each_image_si
     cout << "duration_random time is " << duration_random << "s" << endl;
     cout << "duration_median time is " << duration_median << "s" << endl;
     cout << "duration_pivot time is "  << duration_pivot << "s" << endl;
-    
+
     // 释放空间
     for (int i = 0; i < m; ++i) {
       delete[]S[i];
