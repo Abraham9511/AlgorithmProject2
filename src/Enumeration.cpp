@@ -14,13 +14,13 @@ std::vector<std::pair<int, int> > Enumeration(Image* image, const int& image_siz
     pair<int, int> shortest;
     //取第i个点
     for (int i = 0; i < image_size; i++) {
-        int* data1 = image[i].Get_Arr();
+        double* data1 = image[i].Get_Arr();
         int size1 = image[i].Get_Size();
         double distance;
         double short_dis = -1;
         //将第i个点与后面的点逐一比较
         for (int j = i + 1; j < image_size; j++) {
-            int* data2 = image[j].Get_Arr();
+            double* data2 = image[j].Get_Arr();
             int size2 = image[j].Get_Size();
             double ij_dis = 0;
             //计算每个维度
@@ -64,4 +64,3 @@ std::vector<std::pair<int, int> > Enumeration(Image* image, const int& image_siz
     //return shortest;
     return p;
 }
-

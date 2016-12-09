@@ -2,26 +2,50 @@
 #define _IMAGE_H
 
 #include<string>
+
+// 存储一张图像
+// 只能用于处理灰度图
 class Image {
   public:
     Image();
-    void Set_Index(const int&);
-    void Add_Image(const std::string&, const int&, const int&, const int&);
-    void Trans_Int();
-    int* Get_Arr(); // 得到Arr
-    int Get_Size(); // 得到长度
+    ~Image();
+    // 输入：一维图像（从左到右），图像的宽度和高度
+    // 输出：无
+    // 功能：保存到类中
+    void Add_Image(const std::string& temp, const int& rows, const int&cols);
+    // 输入：无
+    // 输出：一维double数组
+    // 功能：获取图像的一维double
+    double* Get_Arr();
+    // 输入：无
+    // 输出：一维double字符串
+    // 功能：获取一维字符串图像
+    const std::string& Get_Image();
+    // 输入：无
+    // 输出：图像的大小
+    // 功能：获取图像大小
+    int Get_Size();
+    // 获取图像的宽度和高度
     int Get_Row();
     int Get_Col();
-    const std::string& Get_Image();
+    // 输入：一维长度与图像相同的向量
+    // 输出：相乘结果
+    // 功能：向量点乘结果
     double Multiply(double*);
-    void Print_Image(); // 打印对应的图片
+    // 输入：一维长度与图像相同的向量
+    // 输出：相乘结果
+    // 功能：打印对应的图片
+    void Print_Image();
   private:
-    std::string image; // 灰度图，一个字节就能表示一个像素点的值
-    int* Arr; // 将字符串模式的像素点转为整数 “12” -> int类型的12
-    int Size; // 长度
-    int Index; // 标记image
+    // 灰度图，一个字节就能表示一个像素点的值
+    std::string image;
+    // 将字符串模式的像素点转为整数 “12” -> int类型的12
+    double* Arr;
+    // 图像的宽度高度
     int Row;
-    int Col; // 正方形
+    int Col;
+    // 将一维字符串转换为一维double
+    void Trans_Double();
 };
 
 #endif

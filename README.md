@@ -56,6 +56,32 @@ g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cp
 包括映射，两个排序
 以及每个部分都要编写相应的文档
 
+#### 12.9 优化
+主要是对cp.cpp和Algorithm1.cpp的修改  
+增加了cp.h文件  
+以及
+还有makefile具备三个功能
+
+```
+make 
+make clean
+make run
+```
+* cp.cpp中形成将 大端转小端 写成一个新函数， 将文件转化为Image类写成一个函数
+* Algorithm1.cpp将原本的两个函数（一个执行归并排序，一个执行快排序）合并为一个，共用相同的随机向量
+* Algorithm1.cpp将所有文件中存储所有图像映射到所有随机向量上的向量机中在Closet_Pair函数中，只用声明初始化一次，减少内存以及声明的时间
+* 最重要的修改莫过于按照proj的要求，将随机向量的数量从 **60000** 减少到 **100**，缩小了600，花费时间明显减少
+* Algorithm3和Algorithm4的接口改变
+* Image的打印的图像的样式反转了
+
+等algorithm3和4修改完，合并再进行最后测试，**ddl：12.10晚上12点**
+
+##### 后期文档分工
+注释都由完成cpp文件的人自己负责
+* 党员，algorithm3文档
+* 中舟，algorithm4文档
+* 班长，cp, image, algorithm1, algorithm2文档
+
 ### 贡献者
 欧光文，庄嘉鑫，徐嘉辰，夏中舟
 
@@ -67,3 +93,4 @@ g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cp
 5. [ubuntu简单写makefile](http://wiki.ubuntu.org.cn/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile:MakeFile%E4%BB%8B%E7%BB%8D)
 6. [大端小端](http://blog.sina.com.cn/s/blog_9f1c0931010193ct.html)
 7. [大端小端转换](http://www.blogjava.net/tinysun/archive/2009/12/31/307952.html)
+8. [google注释书写规范](http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/comments/)
