@@ -21,14 +21,13 @@ Image::~Image() {
 // 初始化图像并且生成图像的double数组方便后面计算
 void Image::Add_Image(const string& temp, const int& rows, const int& cols) {
     this->image = temp;
-    this->Size = rows*cols;
     this->Row = rows;
     this->Col = cols;
     this->Arr = new double[this->Get_Size()];
-    this->Trans_Int();
+    this->Trans_Double();
 }
 
-void Image::Trans_Int() {
+void Image::Trans_Double() {
     int size = Get_Size();
     const string& temp = Get_Image();
     for (int i = 0; i < size; ++i) {
@@ -59,7 +58,6 @@ const string& Image::Get_Image() {
 double Image::Multiply(double* a) {
     double ans;
     int size = Get_Size();
-    const string& temp = Get_Image();
     const double* p = Get_Arr();
     for (int i = 0; i < size; ++i) {
         ans += a[i]* p[i];

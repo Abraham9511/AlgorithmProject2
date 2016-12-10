@@ -1,6 +1,39 @@
 # AlgorithmProject2
 算法作业第二个Project
 
+## 运行
+在src目录下
+若是要编译文件，可直接
+```
+make 
+```
+若是要run，可直接
+```
+make run
+```
+若是要清楚生成的编译文件 
+```
+make clean
+```
+附上makefile的文件截图
+![](./pic/makefile.png)
+
+## 文件目录
+![](./pic/directory.png)
+
+* log 用于保存我们实验过程中每次测试的报告
+* pic 保存README中的截图
+* README.md 用于保存我们如何完成大作业的过程，包括难点等
+* src 保存源代码
+	* cp.cpp cp.h 主函数，完成文件读取以及整个流程控制
+	* algorithm1.h, algorithm1.cpp 实现组织Random projection和两个排序算法的组织
+	* algorithm2.h algorithm2.cpp 实现Random Projection
+	* algorithm3.h algorithm4.h 实现归并
+	* algorithm4.h algorithm4.cpp 实现特殊的快排
+	* Image.h Image.cpp 实现对图像的统一存储与处理
+	* Enumeration.h Enumeraion.cpp 实现枚举最佳选项（用于优化结果）
+
+## 以下是我们做作业的过程
 ### 作业要求
 ![](./pic/requirements.png)
 
@@ -19,7 +52,7 @@ Algorithm 3 和 4是排序以及需找最近对的方法， 3 是合并排序 4�
 ![](./pic/submission.png)
 
 ### 难点
-~~  这个算法要实现最优化的参数设置，找多几组数据测试，然后暴力找到最优化解以及次优，第三优，等等，看看算法实现出来的结果怎么样。m该怎么取 ~~
+~~这个算法要实现最优化的参数设置，找多几组数据测试，然后暴力找到最优化解以及次优，第三优，等等，看看算法实现出来的结果怎么样。m该怎么取~~
 实际上维度是确定的
 
 ### 算法截图
@@ -63,9 +96,9 @@ g++ -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cp
 还有makefile具备三个功能
 
 ```
-make 
-make clean
-make run
+make // 编译文件
+make clean // 清除生成的运行文件
+make run // 运行文件
 ```
 * cp.cpp中形成将 大端转小端 写成一个新函数， 将文件转化为Image类写成一个函数
 * Algorithm1.cpp将原本的两个函数（一个执行归并排序，一个执行快排序）合并为一个，共用相同的随机向量
@@ -74,10 +107,28 @@ make run
 * Algorithm3和Algorithm4的接口改变
 * Image的打印的图像的样式反转了
 
-等algorithm3和4修改完，合并再进行最后测试，**ddl：12.10晚上12点**
+等algorithm3和4修改完，合并再进行最后测试
+
+#### 12.10 Final（包含测试结果）
+代码合并完成，文档完成,测试完成
+我们一共测试了三次，分别测量了单独使用Random Project+归并花费时间，和单独Random Project+快排花费时间，其中Random Project两者是一样的
+
+|    次数    | 使用归并 | 使用特殊快排 | 
+| ---------- | ---------- | ---------- |
+| 第一次 |   25.3144s | 21.2093s |
+| 第二次 |  26.2554s | 21.8885s |
+| 第三次 |  26.2676s | 21.7504s |
+
+输出的图像的结果表明还是比较相近的，偶尔出现相差比较大的
+![](./pic/test1.png)
+
+![](./pic/test2.png)
+
+![](./pic/test3.png)
 
 ##### 后期文档分工
 注释都由完成cpp文件的人自己负责
+
 * 党员，algorithm3文档
 * 中舟，algorithm4文档
 * 班长，cp, image, algorithm1, algorithm2文档

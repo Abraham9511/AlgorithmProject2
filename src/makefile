@@ -1,15 +1,9 @@
-cp: cp.o algorithm1.o Image.o, algorithm2.o algorithm4.o 
-	g++ -g -Wall -std=c++11 cp.cpp algorithm1.o algorithm2.o algorithm4.o Image.o -o cp
-Image.o: Image.h
-	g++ -g -Wall -std=c++11 Image.cpp -o Image.o
-algorithm1.o: algorithm1.h algorithm2.h algorithm4.h Image.h
-	g++ -g -Wall -std=c++11 algorithm1.cpp algorithm2.o algorithm4.o Image.o -o algorithm1.o
-algorithm2.o: algorithm2.h Image.h
-	g++ -g -Wall -std=c++11 algorithm2.cpp Image.o -o algorithm2.o
-#algorithm3.o: algorithm3.h
-algorithm4.o: algorithm4.h
-	g++ -g -Wall -std=c++11 algorithm4.cpp Image.o -o algorithm4.o
+cp:
+	g++ -g -Wall -std=c++11 cp.cpp algorithm1.cpp algorithm2.cpp algorithm3.cpp algorithm4.cpp Image.cpp -o cp
 
+.PHONY: run
+run:
+	./cp -n 60000 -d 784 -f train-images.idx3-ubyte
 .PHONY: clean
 clean:
-	rm *.o
+	rm cp

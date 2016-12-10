@@ -34,7 +34,7 @@ void boxmuller(double* data, size_t count){
     }
 }
 
-std::pair<int,double>** Random_Projection(std::pair<int, double>** S, const int& total_image, Image* image, const int& each_image_size) {
+std::pair<int,double>** Random_Projection(std::pair<int, double>**S, const int& total_image, const int& each_image_size, Image* image_arr, const int& m) {
   // 声明用于保存m个随机向量，长度等长图片的长度
     double **a = new double*[m];
     for (int i = 0; i < m; ++i) {
@@ -50,7 +50,7 @@ std::pair<int,double>** Random_Projection(std::pair<int, double>** S, const int&
     for (int i = 0; i < total_image; ++i) {
         for (int j = 0; j < 100; ++j) {
             S[j][i].first = i;
-            S[j][i].second = image[i].Multiply(a[j]);
+            S[j][i].second = image_arr[i].Multiply(a[j]);
         }
     }
 

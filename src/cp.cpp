@@ -22,9 +22,6 @@ using std::endl;
 using std::string;
 using std::ifstream;
 
-
-
-
 int main(int argc, char* args[]) {
     // 用于处理输入的参数格式问题，符合要求的参数形式才会被允许继续运行程序
     if (argc != 7) {
@@ -63,17 +60,16 @@ int main(int argc, char* args[]) {
     Read_File(file, total_image, each_image_size, image_arr);
 
     // 定义测量程序运行时间：起点，终点
-    clock_t start, finish;
-    double duration;
+    // clock_t start, finish;
 
     // 执行随机算法，使用的排序方法是归并,快拍
     // 记录时间，打印，计算出该算法得出的最近对，打印，并且打印出两张图片的*形图
     cout << "Random Projection Using Median" << endl;
-    start = clock();
+    // start = clock();
     std::pair<int, int> cp1 = Closet_Pair(total_image, each_image_size, image_arr, m);
-    finish = clock();
+    // finish = clock();
     cout << "Closet set is " << cp1.first << " " << cp1.second << endl;
-    cout << "When Random Projection, time costs is " << (double)(finish-start)/CLOCKS_PER_SEC << "s" << endl;
+    // cout << "When Random Projection, time costs is " << (double)(finish-start)/CLOCKS_PER_SEC << "s" << endl;
     image_arr[cp1.first].Print_Image();
     image_arr[cp1.second].Print_Image();
 
@@ -105,7 +101,7 @@ int Reverse_Int(const int& i) {
     return ((int)(c1 << 24)+(int)(c2<< 16)+(int)(c3<<8)+c4);
 }
 
-void Read_File(const ifstream& file, const int& total_image, const int& each_image_size, Image* image_arr) {
+void Read_File(ifstream& file, const int& total_image, const int& each_image_size, Image* image_arr) {
   // 以下四个变量以及四次file.read是为了读取文件的前32个字节，获得文件的类型，图片的大小，行，列
   // 该文件是按照大端，而我使用的机器是小端的x86架构的机器，因而若是想读取正确信息，需要Reverse_Int(const int&)来得到正确的int
   // 本项目可以从参数获得信息，因而此处直接弃掉前32个字节直接进入保存图像
@@ -131,7 +127,6 @@ void Read_File(const ifstream& file, const int& total_image, const int& each_ima
   // 文件内的图像均是灰度图，一个字节表示一个像素点，且均是方图
   int rows = sqrt(each_image_size);
   int cols = rows;
-  int index = 0;
   for (int index = 0; file.eof() != true && index < total_image; ++index) {
     // unsigned char !! 使用无符号避免以后符号拓展时候变成负数
     unsigned char c;
