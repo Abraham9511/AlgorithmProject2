@@ -1,0 +1,7 @@
+pair<int, int> Closet_Pair_Median(pair<int, double>* list, const int& total_image);通过调用pair<double, pair<int, int> > Closet_Pair_M(pair<int, double>* list, const int& number);来得到最近对的下标。
+
+pair<double, pair<int, int> > Closet_Pair_M(pair<int, double>* list, const int& number);将所有图像投影到同意随机向量后的随机向量进行处理，采用归并排序的思想来对序列进行排序，并在整个过程中不断得到三个最近对：序列的左部分的最近对，序列的右部分的最近对，以及两个元素分别在左右部分的最近对。然后比较三部分的距离，返回三者中最小的最近对中包含的下标。这里之所以采用这种写法来写而不是直接调用最初的接口来实现，是因为考虑到以下几点：１．返回值中已经含有两点之间的距离，不需要再次计算。而如果仅仅返回两者的下标，那么为了计算距离则需要遍历整个序列，造成的开销会比较大。２．可以进行递归调用。
+
+int getMid(pair<int, double>* list, const int& number);函数是为了得到中值的位置。需要注意的是：求出中值所在的位置之后，还需要调用void findKMin(pair<int, double>* list, const int& start, const int& end, const int& target);来对序列进行处理，使得中值左边的元素都小于它，中值右边的元素都大于它。同时，这里利用寻找第k小的算法思想进行了转换，而不是直接对序列进行排序得到中值，这种做法的好处是减小了时间复杂度。
+
+在求三个最近对的最小一个时，调用了函数pair<double, pair<int, int> > findMinBetweenThree(const pair<double, pair<int, int> >& pair1, const pair<double, pair<int, int> >& pair2, const pair<double, pair<int, int> >& pair3);，这个算法只是简单地比较三个最近对的距离，然后返回距离最小的最近对。因为这里每个最近对都提供了距离，所以不需要再次便利下标进行距离的计算。
