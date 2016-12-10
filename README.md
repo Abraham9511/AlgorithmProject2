@@ -1,5 +1,10 @@
 # AlgorithmProject2
 算法作业第二个Project
+我们最终的运行结果可以查看
+
+* 本文档最下面的 12.10（Final）处
+* 或者 实验报告
+* 或者 log文件夹中 Final_test1.log, Final_test2.log, Final_test3.log 的内容
 
 ## 运行
 在src目录下
@@ -17,6 +22,8 @@ make clean
 ```
 附上makefile的文件截图
 ![](./pic/makefile.png)
+
+
 
 ## 文件目录
 ![](./pic/directory.png)
